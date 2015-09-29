@@ -42,18 +42,6 @@ void vector_add_unroll8(const float * __restrict a, const float * __restrict b,
 {
     int i,pre;
 
-#if defined(__GNUC__) && !defined(__INTEL_COMPILER)
-    const float *x = __builtin_assume_aligned(a,64);
-    const float *y = __builtin_assume_aligned(b,64);
-    float *z = __builtin_assume_aligned(c,64);
-    printf("assume aligned\n");
-#else
-    const float *x = a;
-    const float *y = b;
-    float *z = c;
-    printf("standard declaration\n");
-#endif
-
     pre = dim & 8; // entries that exceed dim & 8.
 
     // loop over 8 entries at a time.
@@ -79,9 +67,9 @@ int main(int argc, char **argv)
         return 2;
     }
 
-    posix_memalign((void **)&a,64,dim*sizeof(float));
-    posix_memalign((void **)&b,64,dim*sizeof(float));
-    posix_memalign((void **)&c,64,dim*sizeof(float));
+    a=(float*)malloc(dim*sizeof(float));
+    b=(float*)malloc(dim*sizeof(float));
+    c=(float*)malloc(dim*sizeof(float));
 
     /* fill vectors */
     for (i=0; i < dim; ++i) {
