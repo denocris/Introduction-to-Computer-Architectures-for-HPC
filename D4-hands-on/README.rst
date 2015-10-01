@@ -13,7 +13,7 @@ Learn how to use hwloc/numactl commands
 Run stream benchmark to test different performance when wrongly assigned the processor
 ==========================================================================================
 
-Download the stream benchmark (https://www.cs.virginia.edu/stream/), compile it and familiarize with it.
+Download the stream benchmark (https://www.cs.virginia.edu/stream/), compile it and familiarize with it. The compile flags are `-DSTREAM_ARRAY_SIZE=400000000 -O3 -xHost -mcmodel=medium -openmp`.
 
 Tasks:
 
