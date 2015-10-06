@@ -15,7 +15,7 @@ Each group will run on a dedicated node.
 To run on the computing node:
 ::
 
-  qsub -I -l nodes=$NODE:ppn=24 -l walltime=6:0:0 -N $GROUP
+  qsub -I -l nodes=$NODE:ppn=24 -l walltime=8:0:0 -N $GROUP
 
 the available resources are assigned as follows:
 
