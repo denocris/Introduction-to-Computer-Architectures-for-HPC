@@ -32,7 +32,7 @@ the available resources are assigned as follows:
 +---------+----------+---------+----------------------+
 | group5  |  b15     |	mhpc05 | mbrenesn, pdicerbo   |
 +---------+----------+---------+----------------------+ 
-| group6  |  b17     |	mhpc06 | ansuini, labus       |
+| group6  |  b17     |	mhpc06 | ansuini, plabus      |
 +---------+----------+---------+----------------------+
 
 
