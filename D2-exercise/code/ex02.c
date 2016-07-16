@@ -40,13 +40,14 @@ void vector_add_noopt(float *a, float *b, float *c, int dim)
 void vector_add_unroll8(const float * __restrict a, const float * __restrict b,
                         float * __restrict c, int dim)
 {
-    int i,pre;
+    int i,remainder;
 
-    pre = dim & 8; // entries that exceed dim & 8.
+    remainder = dim % 8; // entries that exceed dim % 8.
+
+    // deal with remainder
 
     // loop over 8 entries at a time.
 
-    }
 }
 
 int main(int argc, char **argv)
