@@ -6,7 +6,7 @@
 #include <mpi.h>
 #define USE MPI
 #define SEED 35791246
-main ( int argc , char *argv[ ] )
+int main ( int argc , char *argv[ ] )
 {
     int niter =0;
     double x, y ;

@@ -5,7 +5,7 @@
 // #define drand48 1.0/RANDMAXrand
 // #define srand48 srand
 #define seed 68111 // seed for number generator
-main (int argc, char ** argv) {
+int main (int argc, char ** argv) {
 
    if (argc<2)
 	{
