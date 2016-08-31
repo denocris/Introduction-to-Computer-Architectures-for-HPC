@@ -38,7 +38,7 @@ int main (int argc, char ** argv) {
       if ((x*x + y*y)<1)
 	M++; 
     }
-  pi = 4*(double)M/N ; // calculate area
+  pi = 4.0*M/N ; // calculate area
   fprintf ( output, "%i\t%f\n", N, pi ) ;
   printf ( "estimated pi stored in pi.dat \n" ) ;
   fclose (output) ;
