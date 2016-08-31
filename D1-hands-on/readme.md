@@ -1,11 +1,11 @@
 # Ulisse Environment Setup
 Login:
 ```
-$ ssh sissausername@frontend1.hpc.sissa.it
+$ ssh sissausername@frontend2.hpc.sissa.it
 ```
 Software is encapsulated in modules, check avaliability and and load modules with:
 ```
-$ module avaliable
+$ module avail
 $ module load
 ```
 # Run Serial Code
