@@ -16,7 +16,7 @@ variables read from command line (i.e, ./a.out -1 0 1) and as
 constants known at compile time. Compile the code using -O2 level of
 optimization and analyze the result obtained.
 
-[df](https://github.com/sissa/P1.2_seed/blob/as_exercises/D2-exercise/loop-carried_dependencies.png)
+![alt text](./loop-carried_dependencies.png)
 
 # Exercise 2, vector unrolling.
 
