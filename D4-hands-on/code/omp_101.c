@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <omp.h>
+
 int main()  {                                 
   int iam =0, np = 1;     
 #pragma omp parallel private(iam, np)
