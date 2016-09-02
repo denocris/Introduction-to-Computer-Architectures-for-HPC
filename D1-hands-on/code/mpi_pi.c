@@ -37,7 +37,8 @@ int main ( int argc , char *argv[ ] )
   // initialize random numbers 
   srand48(SEED*myid) ; // seed the number generator
   local_M=0;
-  for (int i=0; i<N ; i++) {
+  unsigned int i;
+  for (i=0; i<N ; i++) {
     // take a point P(x,y) inside the unit square
     x = drand48(); 
     y = drand48();

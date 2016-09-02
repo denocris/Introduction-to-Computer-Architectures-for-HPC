@@ -28,7 +28,9 @@ int main (int argc, char ** argv) {
   FILE  *output ; // save data in pi.dat
   output = fopen ("pi.dat" , "w") ;
   srand48 ( seed ) ; // seed the number generator
-  for (int i = 0 ; i < N ; i++)
+
+  unsigned int i;
+  for (i = 0 ; i < N ; i++)
     {
       // take a point P(x,y) inside the unit square
       x = drand48(); 
