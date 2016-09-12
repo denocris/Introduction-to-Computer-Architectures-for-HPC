@@ -18,6 +18,5 @@ Exercise 2
 Exercise 3
 ==========
 
-- Develop a matrix-matrix multiplication code in c, using a buffer to
-  store the columns of the second matrix. The order of loops should be
-  such that you could reuse the buffer as much as possible.
+- Get familiar with the `stream` benchmark
+  (https://www.cs.virginia.edu/stream/).
