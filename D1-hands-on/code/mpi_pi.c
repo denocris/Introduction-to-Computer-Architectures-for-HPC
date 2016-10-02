@@ -6,54 +6,63 @@
 #include <mpi.h>
 #define USE MPI
 #define SEED 35791246
-main ( int argc , char *argv[ ] )
+int main ( int argc , char *argv[ ] )
 {
-    int niter =0;
-    double x, y ;
-    int i , j , count=0, mycount ; // # of points in the 1st quadrant of unit circle
-    double z ;
-    double pi ;
-    int myid , numprocs , proc ;
-    MPI_Status status;
-    int master =0;
-    int tag = 123;
+  // coordinates
+  double x, y ;
 
-    MPI_Init(&argc,&argv);
-    MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
-    MPI_Comm_rank(MPI_COMM_WORLD,&myid);
-    if ( argc <=1) {
-        fprintf (stderr , " Usage : monte_pi_mpi number_of_iterations \n" ) ;
-        MPI_Finalize() ;
-        exit(-1) ;
+  // number of points inside the circle
+  int M, local_M ; 
+  double pi ;
+  
+  int myid , numprocs , proc ;
+  MPI_Status status;
+
+  // master process
+  int master = 0;
+  int tag = 123;
+
+  MPI_Init(&argc,&argv);
+  MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD,&myid);
+
+  if ( argc <=1) {
+    fprintf (stderr , " Usage : mpi -np n %s number_of_iterations \n", argv[0] ) ;
+    MPI_Finalize() ;
+    exit(-1) ;
+  }
+
+  int N = atoi(argv[1]);
+
+  // initialize random numbers 
+  srand48(SEED*myid) ; // seed the number generator
+  local_M=0;
+  unsigned int i;
+  for (i=0; i<N ; i++) {
+    // take a point P(x,y) inside the unit square
+    x = drand48(); 
+    y = drand48();
+      
+    // check if the point P(x,y) is inside the circle
+    if ((x*x + y*y)<1)
+      local_M++;
+  }
+
+  if (myid ==0) { //if I am the master process gather results from others
+    M = local_M ;
+    for (proc=1; proc<numprocs ; proc++) {
+      MPI_Recv(&local_M,1,MPI_REAL,proc,tag,MPI_COMM_WORLD,&status ) ;
+      M += local_M ;
     }
+    pi = 4.0*M/(N*numprocs) ;
+    printf ( "\n # of trials = %d , estimate of pi is %g \n", N*numprocs, pi ) ;
+  }
+  else {   // for all the slave processes send results to the master /
+    printf ( " Processor %d sending results = %d to master process \n", myid, local_M) ;
+    MPI_Send(&local_M , 1 ,MPI_REAL, master , tag ,MPI_COMM_WORLD) ;
+  }
 
-    sscanf(argv [1], "%d",&niter ) ; // 1st argument i s the number of iterations/
-// initialize random numbers /
-    srand48(SEED*myid) ; // seed the number generator
-    mycount=0;
-    for ( i =0; i<niter ; i++) {
-        x = drand48()*2 -1 ;
-        y = drand48()*2 -1 ;
-        z = x*x + y*y ;
-        if (z<=1) mycount++;
-    }
-    if (myid ==0) {   //if I am the master process gather results from others
-
-
-        count = mycount ;
-        for ( proc=1; proc<numprocs ; proc++) {
-            MPI_Recv(&mycount,1,MPI_REAL,proc,tag,MPI_COMM_WORLD,&status ) ;
-            count +=mycount ;
-        }
-        pi=( double ) count /(niter*numprocs )*4 ;
-        printf ( "\n # of trials = %d , estimate of pi is %g \n" , niter*numprocs , pi ) ;
-    }
-    else {   // for a l l the slave processes send results to the master /
-        printf ( " Processor %d sending results = %d to master process \n" ,myid , mycount) ;
-        MPI_Send(&mycount , 1 ,MPI_REAL, master , tag ,MPI_COMM_WORLD) ;
-    }
-
-    MPI_Finalize() ; // let MPI finish up /
+  MPI_Finalize() ; // let MPI finish up /
 
 }
 

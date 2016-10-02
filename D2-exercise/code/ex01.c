@@ -39,9 +39,14 @@ void dummy(double * temp){
 }
 
 
-//The funcion compute(...) return the elapsed time needed to complete the vetor upgrade
-//Number of operation are stored into the variable n_op
-double compute( double * vector, double scalar, size_t size, int offset, size_t * n_op ){
+// The funcion compute(...) return the elapsed time needed to complete
+// the vetor upgrade. The number of operation are stored into the
+// variable n_op
+double compute( double * vector,
+		double scalar,
+		size_t size,
+		int offset,
+		size_t * n_op ){
 
   int count, i;
 

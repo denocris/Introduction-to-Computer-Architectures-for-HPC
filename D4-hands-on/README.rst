@@ -5,7 +5,7 @@ Learn how to use hwloc/numactl commands
 =======================================
 
 1. Test all the commands presented in the slides and be familiar with them.
-2. Compile, run and execute the omp_101.c code and understand correctly how to change the number of threads.  
+2. Compile and run the omp_101.c code and understand correctly how to change the number of threads.  
 3. Modify it to make it run longer and try to assign it on different threads by means of numactl/hwloc commands.
 
 

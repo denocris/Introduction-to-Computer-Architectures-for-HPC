@@ -1,17 +1,17 @@
 # Ulisse Environment Setup
 Login:
 ```
-$ ssh sissausername@frontend1.hpc.sissa.it
+$ ssh sissausername@frontend2.hpc.sissa.it
 ```
 Software is encapsulated in modules, check avaliability and and load modules with:
 ```
-$ module avaliable
+$ module avail
 $ module load
 ```
 # Run Serial Code
 ```
-$ gcc pi.c 
-$ ./a.out 1000000
+$ gcc pi.c -o serial_pi
+$ ./serial_pi 1000000
 ```
 # Run Parallel code
 
@@ -25,7 +25,7 @@ loading dependency hwloc/1.10.0
 ```
 Compile in parallel:
 ```
-$ mpicc mpi_pi.c
+$ mpicc mpi_pi.c -o parallel_pi
 ```
 Login on a node in interactive mode:
 ```
@@ -48,7 +48,7 @@ loading dependency hwloc/1.10.0
 ```
 Run the program:
 ```
-$ mpirun -np 4 mpi_pi-x 10000
+$ mpirun -np 4 parallel_pi 10000
 ```
 
 
