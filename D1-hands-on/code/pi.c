@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2016 Master in High Performance Computing
+ *
+ * Adapted from the net by Alberto Sartori. 
+ */
+
 // pi.c: Montecarlo integration to determine pi
 
 // We have a circle inscribed inside a square of unit lenght. The

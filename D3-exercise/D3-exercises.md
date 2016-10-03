@@ -19,4 +19,5 @@ Exercise 3
 ==========
 
 - Get familiar with the `stream` benchmark
-  (https://www.cs.virginia.edu/stream/).
+  (https://www.cs.virginia.edu/stream/) and find the bandwith of your
+  laptop.
