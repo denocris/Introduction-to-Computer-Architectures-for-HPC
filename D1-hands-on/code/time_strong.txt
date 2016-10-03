@@ -1,0 +1,73 @@
+
+ # of trials = 10000000 , estimate of pi is 3.14114 
+0.33user 0.08system 0:00.45elapsed 90%CPU (0avgtext+0avgdata 29936maxresident)k
+0inputs+16outputs (0major+5398minor)pagefaults 0swaps
+
+ # of trials = 20000000 , estimate of pi is 3.14136 
+ Processor 1 sending results = 7853966 to master process 
+0.62user 0.09system 0:00.45elapsed 160%CPU (0avgtext+0avgdata 33232maxresident)k
+0inputs+728outputs (7major+8102minor)pagefaults 0swaps
+ Processor 1 sending results = 7853966 to master process 
+ Processor 3 sending results = 7854525 to master process 
+
+ # of trials = 40000000 , estimate of pi is 3.14144 
+ Processor 2 sending results = 7853093 to master process 
+1.28user 0.18system 0:00.48elapsed 303%CPU (0avgtext+0avgdata 33456maxresident)k
+0inputs+1384outputs (22major+13138minor)pagefaults 0swaps
+ Processor 5 sending results = 7854873 to master process 
+ Processor 7 sending results = 7854078 to master process 
+ Processor 3 sending results = 7854525 to master process 
+ Processor 1 sending results = 7853966 to master process 
+ Processor 4 sending results = 7854697 to master process 
+ Processor 2 sending results = 7853093 to master process 
+ Processor 6 sending results = 7852538 to master process 
+
+ # of trials = 80000000 , estimate of pi is 3.14153 
+2.45user 0.40system 0:00.50elapsed 571%CPU (0avgtext+0avgdata 34688maxresident)k
+0inputs+6752outputs (58major+23787minor)pagefaults 0swaps
+ Processor 4 sending results = 7854697 to master process 
+ Processor 2 sending results = 7853093 to master process 
+ Processor 8 sending results = 7853619 to master process 
+ Processor 6 sending results = 7852538 to master process 
+ Processor 3 sending results = 7854525 to master process 
+ Processor 5 sending results = 7854873 to master process 
+ Processor 1 sending results = 7853966 to master process 
+ Processor 7 sending results = 7854078 to master process 
+ Processor 10 sending results = 7854124 to master process 
+ Processor 9 sending results = 7852516 to master process 
+ Processor 12 sending results = 7855008 to master process 
+ Processor 14 sending results = 7854210 to master process 
+ Processor 13 sending results = 7853174 to master process 
+ Processor 15 sending results = 7852352 to master process 
+ Processor 11 sending results = 7854140 to master process 
+
+ # of trials = 160000000 , estimate of pi is 3.14149 
+4.92user 1.17system 0:00.66elapsed 923%CPU (0avgtext+0avgdata 35328maxresident)k
+0inputs+13472outputs (141major+44827minor)pagefaults 0swaps
+ Processor 3 sending results = 7854525 to master process 
+ Processor 7 sending results = 7854078 to master process 
+ Processor 8 sending results = 7853619 to master process 
+ Processor 10 sending results = 7854124 to master process 
+ Processor 12 sending results = 7855008 to master process 
+ Processor 13 sending results = 7853174 to master process 
+ Processor 2 sending results = 7853093 to master process 
+ Processor 6 sending results = 7852538 to master process 
+ Processor 14 sending results = 7854210 to master process 
+ Processor 9 sending results = 7852516 to master process 
+ Processor 16 sending results = 7853074 to master process 
+ Processor 1 sending results = 7853966 to master process 
+ Processor 22 sending results = 7851177 to master process 
+ Processor 15 sending results = 7852352 to master process 
+ Processor 11 sending results = 7854140 to master process 
+ Processor 20 sending results = 7853718 to master process 
+ Processor 5 sending results = 7854873 to master process 
+ Processor 19 sending results = 7852755 to master process 
+ Processor 21 sending results = 7852532 to master process 
+ Processor 23 sending results = 7853459 to master process 
+ Processor 17 sending results = 7853376 to master process 
+ Processor 4 sending results = 7854697 to master process 
+ Processor 18 sending results = 7855985 to master process 
+
+ # of trials = 240000000 , estimate of pi is 3.14143 
+7.50user 2.28system 0:00.80elapsed 1220%CPU (0avgtext+0avgdata 35872maxresident)k
+0inputs+20152outputs (228major+66311minor)pagefaults 0swaps

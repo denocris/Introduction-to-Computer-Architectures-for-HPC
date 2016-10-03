@@ -1,0 +1,6 @@
+estimated pi stored in pi.dat 
+0.31user 0.00system 0:00.34elapsed 90%CPU (0avgtext+0avgdata 2288maxresident)k
+0inputs+16outputs (0major+178minor)pagefaults 0swaps
+estimated pi stored in pi.dat 
+0.27user 0.00system 0:00.30elapsed 91%CPU (0avgtext+0avgdata 2288maxresident)k
+0inputs+16outputs (0major+178minor)pagefaults 0swaps
