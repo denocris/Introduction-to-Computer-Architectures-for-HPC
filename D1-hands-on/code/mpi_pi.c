@@ -20,7 +20,7 @@ int main ( int argc , char *argv[ ] )
   double x, y ;
 
   // number of points inside the circle
-  int M, local_M ; 
+  long long int M, local_M ; 
   double pi ;
   
   int myid , numprocs , proc ;
@@ -40,7 +40,7 @@ int main ( int argc , char *argv[ ] )
     exit(-1) ;
   }
 
-  int N = atoi(argv[1]);
+  long long int N = atoi(argv[1]);
 
   // initialize random numbers 
   srand48(SEED*myid) ; // seed the number generator
@@ -63,10 +63,10 @@ int main ( int argc , char *argv[ ] )
       M += local_M ;
     }
     pi = 4.0*M/(N*numprocs) ;
-    printf ( "\n # of trials = %d , estimate of pi is %g \n", N*numprocs, pi ) ;
+    printf ( "\n # of trials = %llu , estimate of pi is %1.9f \n", N*numprocs, pi ) ;
   }
   else {   // for all the slave processes send results to the master /
-    printf ( " Processor %d sending results = %d to master process \n", myid, local_M) ;
+    printf ( " Processor %d sending results = %llu to master process \n", myid, local_M) ;
     MPI_Send(&local_M , 1 ,MPI_REAL, master , tag ,MPI_COMM_WORLD) ;
   }
 
