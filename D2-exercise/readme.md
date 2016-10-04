@@ -24,3 +24,9 @@ Develop a program that performs vector addition, unrolling eight
 entries per for loop. Compute the wall time for non optimized vector
 addition and compare it with the implemented vector unrolling
 version. Compare timing for the two different implementation.
+
+# Exercise 3, matrix-matrix multiplication
+
+Write a 3-for loops for computing matrix-matrix multiplication.
+
+# Write a report and push it to the master on your fork
