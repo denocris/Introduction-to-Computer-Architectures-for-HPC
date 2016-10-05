@@ -15,9 +15,4 @@ Exercise 2
   class.  Check the performance difference for different matrix sizes
   (1024, 2048, 4096) and different buffer sizes.
 
-Exercise 3
-==========
-
-- Get familiar with the `stream` benchmark
-  (https://www.cs.virginia.edu/stream/) and find the bandwith of your
-  laptop.
+# Write a small report and push it to the master branch of your fork
