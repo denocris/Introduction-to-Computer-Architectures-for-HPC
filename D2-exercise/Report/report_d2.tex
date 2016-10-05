@@ -139,38 +139,29 @@
 
 \begin{document}
 
-\section{Report: Weak and Strong Scalability}
+\section{Report: Pipeline and Offset}
 
-We have seen the weak and strong scalability. We tested a simple mote-carlo code to compute ?, both in a serial manner and a parallel one. The task was to establish when is worthwhile to parallelize a code. I wrote two bash script to implement the weak and strong approach and extract the elapse time of the execution. These are:
-\begin{itemize}
-\item pi$\_$scrip$\_$w.txt
-\item pi$\_$scrip$\_$s.txt
-\end{itemize}
+The program allocates a vector of $100K$ elements and performs the operation
+\begin{equation}
+A[i] = s A[i + \mbox{offset}]\,,
+\end{equation}
+where the offset can be $+1,0,-1$. 
+The idea is to compute the number of operations per second that the processor is able to perform in each of the three cases. 
+In the first two cases, when the offset=$+1,0$, we are employing a pipeline, while when the offset is $-1$ the 
+pipeline is not anymore achieved and therefore the number of operations per second drop about $20\%$.
 
  \begin{figure}
 %\vspace{.2cm}
 %\hspace{-1.4cm}
 \begin{center}
-\includegraphics[width=7cm]{speedup.pdf}
+\includegraphics[width=7cm]{pipeline.pdf}
 \end{center}
 %\vspace{-.7cm}
-\caption{In this plot we can see that if our code has few moves ($10^6 - 10^7$) then is not convenient to parallelize it. Otherwise, if the code has a great number of moves (say $\geq 10^8$) then it is worthwhile to parallelize it}
+\caption{}
 \label{fig: speedup}
 \end{figure}
 
- \begin{figure}
-%\vspace{.2cm}
-%\hspace{-1.4cm}
-\begin{center}
-\includegraphics[width=7cm]{eff.pdf}
-\end{center}
-%\vspace{-.7cm}
-\caption{We plot the efficiency.}
-\label{fig: eff}
-\end{figure}
 
-
-In the captions of the two figures some details are explained.
 
 \end{document}
 

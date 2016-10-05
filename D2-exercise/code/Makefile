@@ -3,7 +3,7 @@ CC=gcc
 CFLAGS=-O0 -Wall
 LDFLAGS=-lm
 
-SRC= ex01.c ex02.c
+SRC= ex01.c ex02.c ex01_l.c
 EXE= $(SRC:%.c=%.x)
 
 # targets
