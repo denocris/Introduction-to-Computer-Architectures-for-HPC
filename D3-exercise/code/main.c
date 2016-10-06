@@ -1,8 +1,19 @@
 #include "matrix_tools.h"
-#include "vector_tools.h"
-#include "mat_vect_multy.h"
-#include "solver.h"
-#include <assert.h>
+
+
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <unistd.h>
+
+double seconds(){
+
+/* Return the second elapsed since Epoch (00:00:00 UTC, January 1, 1970) */
+  struct timeval tmp;
+  double sec;
+  gettimeofday( &tmp, (struct timezone *)0 );
+  sec = tmp.tv_sec + ((double)tmp.tv_usec)/1000000.0;
+  return sec;
+}
 
 
 void naife_transpose(){
@@ -26,7 +37,17 @@ void naife_transpose(){
     assign_increasing(&A);
     //print_m(&A);
 
+    double elaps_t_i;
+    double elaps_t_f;
+    double elaps_time;
+
+    elaps_t_i = seconds();
     matrix_transpose(&A,&AT);
+    elaps_t_f = seconds();
+
+    elaps_time = elaps_t_f - elaps_t_i;
+    printf("%e\n",elaps_time);
+
     print_m(&AT);
 
     deallocate_m(&A);
@@ -91,7 +112,7 @@ void fast_transpose(){
 
     }
 }
-    printf("Ciaooooooooooooooooooo\n");
+
     print_m(&AT);
 
 
