@@ -2,8 +2,8 @@
 
 #declare -a vsize=$(seq 1000 5000 21000)
 
-PBS -l nodes=1:ppn=24
-PBS -l walltime=01:00:00
+#PBS -l nodes=1:ppn=24
+#PBS -l walltime=01:00:00
 
 #cd /P1.2_seed/D4-hands-on
 
