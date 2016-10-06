@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.18)  5 OCT 2016 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.18)  5 OCT 2016 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,11 +728,11 @@ Package cleveref Info: loaded `english' language definitions on input line 166.
 Package cleveref Info: loaded `english' language definitions on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 14613 strings out of 493117
- 259601 string characters out of 6135433
+ 14607 strings out of 493117
+ 259548 string characters out of 6135433
  367528 words of memory out of 5000000
  17796 multiletter control sequences out of 15000+600000
- 31554 words of font info for 97 fonts, out of 8000000 for 9000
+ 31229 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,10n,43p,10381b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/
@@ -741,7 +741,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf
 -dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report_d2.pdf (1 page, 285724 bytes).
+Output written on report_d2.pdf (1 page, 285905 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream

@@ -4,79 +4,108 @@
 #include "solver.h"
 #include <assert.h>
 
-int main()
-{
+
+void naife_transpose(){
+
+    matrix_t A; // is the matrix A
+    matrix_t AT;
+
+    int dim = 4;
+
+  // We allocate space for our objects
+    allocate_m(&A,dim,dim);
+    allocate_m(&AT,dim,dim);
+
+    //allocate_v(&my_vect_out,r);
+    assign_zero_m(&A);
+    assign_zero_m(&AT);
+
+
+  // Construct the matrix
+
+    assign_increasing(&A);
+    //print_m(&A);
+
+    matrix_transpose(&A,&AT);
+    print_m(&AT);
+
+    deallocate_m(&A);
+    deallocate_m(&AT);
+}
+
+void fast_transpose(){
+
+
+
+    matrix_t A; // is the matrix A
+    matrix_t AT;
+
+    int dim = 4;
+
+  // We allocate space for our objects
+    allocate_m(&A,dim,dim);
+    allocate_m(&AT,dim,dim);
+
+    //allocate_v(&my_vect_out,r);
+    assign_zero_m(&A);
+    assign_zero_m(&AT);
+
+
+  // Construct the matrix
+
+    assign_increasing(&A);
+    //print_m(&A);
+
+    int num_bloks=2;
+    int l,m;
+    int block_size=2;
+
+    matrix_t buff;
+    allocate_m(&buff,2,2);
+    assign_zero_m(&buff);
+
+
+
+    for(l=0; l < num_bloks; l++){
+      for(m=0; m < num_bloks; m++){
+
+        int i,j;
+        for(i=0; i < block_size; i++){
+          for(j=0; j < block_size; j++){
+            double entry;
+            entry = get_ij(l*block_size +i,m*block_size+j,&A);
+            assign_ij(i,j,entry,&buff);
+          }
+        }
+
+        for(i=0; i < block_size; i++){
+          for(j=0; j < block_size; j++){
+            double entry;
+            entry = get_ij(i,j,&buff);
+            //printf("_________________________ OK2");
+            assign_ij(m*block_size+j,l*block_size +i,entry,&AT);
+
+          }
+        }
+
+
+    }
+}
+    printf("Ciaooooooooooooooooooo\n");
+    print_m(&AT);
+
+
+
+    deallocate_m(&A);
+    deallocate_m(&AT);
+    deallocate_m(&buff);
+}
+
+
+int main(){
   printf("-------------------------------------------------------------------------- \n");
-  //printf("This code implements the Conjugate Gradient Method \n to solve the linear system A x = b and find out the vector x\n");
 
-  // We want to solve A x = b.
+  naife_transpose();
 
-  matrix_t A; // is the matrix A
-  matrix_t AT; // is the vector b
-  //vector_t my_vect_out;
-
-// In this example our matrix A will be 2 x 2
-  int dim = 3; // matrix row
-  //int c = 3; // matrix column
-
-// We allocate space for our objects
-  allocate_m(&A,dim,dim);
-  allocate_m(&AT,dim,dim);
-
-  //allocate_v(&my_vect_out,r);
-  assign_zero_m(&A);
-  assign_zero_m(&AT);
-
-
-// Construct the matrix
-
-assign_increasing(&A);
-print_m(&A);
-
-matrix_transpose(&A,&AT);
-print_m(&AT);
-
-deallocate_m(&A);
-deallocate_m(&AT);
-  /*assign_ij(0,0,4,&my_mat);
-  assign_ij(0,1,1,&my_mat);
-  assign_ij(1,0,1,&my_mat);
-  assign_ij(1,1,3,&my_mat);
-
-  printf("The matrix A is:\n");
-  printf("------------------- \n");
-  printf("%e   ",my_mat.data[0]);
-  printf("%e\n",my_mat.data[1]);
-  printf("%e   ",my_mat.data[2]);
-  printf("%e\n",my_mat.data[3]);
-  printf("------------------- \n");
-
-// Construct the vector
-  assign_i(0,1,&my_vect_b);
-  assign_i(1,2,&my_vect_b);
-
-  int i;
-  printf("The vector b is:\n");
-  for (i = 0; i < my_vect_b.size; i++)
-  {
-    printf("%e\n",my_vect_b.data[i]);
-  }
-  printf("------------------- \n");
-
-  //multiply_mat_vect(&my_mat,&my_vect_b,&my_vect_out);
-
-  vector_t x_sol = conj_grad_method(&my_mat,&my_vect_b);
-
-  printf("The solution x of our system A x = b is:\n");
-  for (i = 0; i < my_vect_b.size; i++)
-  {
-    printf("%e\n",x_sol.data[i]);
-  }
-  printf("------------------- \n");
-
-  deallocate_m(&my_mat);
-  deallocate_v(&my_vect_b);
-  //deallocate_v(&my_vect_out);
-
-  printf("The program is finished! Enjoy! \n");*/
+  fast_transpose();
 }
