@@ -8,7 +8,7 @@ touch output.txt
 
 
 
-for vect_size in $(seq 5000 10000 30000); do
+for vect_size in $(seq 100000 100000 10000000); do
 
     gcc -DSTREAM_ARRAY_SIZE=$vect_size -O3 -openmp stream.c -o stream.x
 
