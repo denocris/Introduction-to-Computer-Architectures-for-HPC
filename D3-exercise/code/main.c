@@ -77,12 +77,12 @@ void fast_transpose(int dim, int block_size){
     assign_increasing(&A);
     //print_m(&A);
 
-    int num_bloks=2;
+    int num_bloks=dim/block_size;
     int l,m;
     //int block_size=2;
 
     matrix_t buff;
-    allocate_m(&buff,2,2);
+    allocate_m(&buff,block_size,block_size);
     assign_zero_m(&buff);
 
     double elaps_t_i;
