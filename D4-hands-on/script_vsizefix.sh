@@ -11,7 +11,7 @@ touch output_vsizefix1K.txt
 
 for num_threads in $(seq 1 1 24); do
 
-    gcc -DSTREAM_ARRAY_SIZE=1000 -O3 -openmp stream.c -o stream.x
+    gcc -DSTREAM_ARRAY_SIZE=100000 -O3 -openmp stream.c -o stream.x
 
     export OMP_NUM_THREADS=$num_threads
 
