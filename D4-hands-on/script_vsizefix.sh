@@ -3,18 +3,21 @@
 #declare -a vsize=$(seq 1000 5000 21000)
 
 
-rm -f h3c_v1M.txt
-touch h3c_v1M.txt
+vect_size=$1
+
+
+rm -f h3c_v$vect_sizeM.txt
+touch h3c_v$vect_sizeM.txt
 
 #mkdir -p openmp
 
 
 for num_threads in $(seq 1 1 24); do
 
-    gcc -DSTREAM_ARRAY_SIZE=500000 -O3 -fopenmp stream.c -o stream.x
+    gcc -DSTREAM_ARRAY_SIZE=$(($vect_size*1000000)) -O3 -fopenmp stream.c -o stream.x
 
     export OMP_NUM_THREADS=$num_threads
 
-    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v1M.txt
+    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v$vect_sizeM.txt
 
 done
