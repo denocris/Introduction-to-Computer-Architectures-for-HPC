@@ -16,33 +16,19 @@ double seconds(){
 }
 
 
-void naife_transpose(int dim){
+void naife_transpose(double *A, double *AT, size_t dim){
 
-    matrix_t A; // is the matrix A
-    matrix_t AT;
-
-    //int dim = 4;
-
-  // We allocate space for our objects
-    allocate_m(&A,dim,dim);
-    allocate_m(&AT,dim,dim);
-
-    //allocate_v(&my_vect_out,r);
-    assign_zero_m(&A);
-    assign_zero_m(&AT);
-
-
-  // Construct the matrix
-
-    assign_increasing(&A);
-    //print_m(&A);
-
+    int i,j;
     double elaps_t_i;
     double elaps_t_f;
     double elaps_time;
 
     elaps_t_i = seconds();
-    matrix_transpose(&A,&AT);
+
+    for(i=0; i < dim; i++)
+      for(j=0; j < dim; j++)
+        AT[i*dim + j]=A[j*dim + i];
+
     elaps_t_f = seconds();
 
     elaps_time = elaps_t_f - elaps_t_i;
@@ -50,40 +36,20 @@ void naife_transpose(int dim){
 
     //print_m(&AT);
 
-    deallocate_m(&A);
-    deallocate_m(&AT);
 }
 
-void fast_transpose(int dim, int block_size){
+
+void fast_transpose(double *A, double *AT,size_t dim,size_t block_size){
 
 
 
-    matrix_t A; // is the matrix A
-    matrix_t AT;
-
-    //int dim = 4;
-
-  // We allocate space for our objects
-    allocate_m(&A,dim,dim);
-    allocate_m(&AT,dim,dim);
-
-    //allocate_v(&my_vect_out,r);
-    assign_zero_m(&A);
-    assign_zero_m(&AT);
+    size_t i,j;
+    size_t bi,bj;
 
 
-  // Construct the matrix
+    //assign_increasing(&A);
 
-    assign_increasing(&A);
-    //print_m(&A);
 
-    int num_bloks=dim/block_size;
-    int l,m;
-    //int block_size=2;
-
-    matrix_t buff;
-    allocate_m(&buff,block_size,block_size);
-    assign_zero_m(&buff);
 
     double elaps_t_i;
     double elaps_t_f;
@@ -91,31 +57,12 @@ void fast_transpose(int dim, int block_size){
 
     elaps_t_i = seconds();
 
-    for(l=0; l < num_bloks; l++){
-      for(m=0; m < num_bloks; m++){
-
-        int i,j;
-        for(i=0; i < block_size; i++){
-          for(j=0; j < block_size; j++){
-            double entry;
-            entry = get_ij(l*block_size +i,m*block_size+j,&A);
-            assign_ij(i,j,entry,&buff);
+    for(i=0; i < dim; i+=block_size)
+      for(j=0; j < dim; j+=block_size)
+        for(bi = i; bi < i+block_size; ++bi)
+         for(bj = j; bj < j+block_size; ++bj){
+           AT[bi + bj*dim] = A[bi*dim + bj];
           }
-        }
-
-        for(i=0; i < block_size; i++){
-          for(j=0; j < block_size; j++){
-            double entry;
-            entry = get_ij(i,j,&buff);
-            //printf("_________________________ OK2");
-            assign_ij(m*block_size+j,l*block_size +i,entry,&AT);
-
-          }
-        }
-
-
-    }
-}
 
     elaps_t_f = seconds();
 
@@ -123,19 +70,40 @@ void fast_transpose(int dim, int block_size){
 
     elaps_time = elaps_t_f - elaps_t_i;
     printf("%e\n",elaps_time);
-
-
-
-    deallocate_m(&A);
-    deallocate_m(&AT);
-    deallocate_m(&buff);
 }
+
 
 
 int main(){
-  //printf("-------------------------------------------------------------------------- \n");
 
-  naife_transpose();
+  double *A;
+  double *AT;
+  size_t dim, block_size;
+  int i;
 
-  fast_transpose();
+  dim = 8192;
+  block_size = 64;
+
+  A = (double*)malloc(dim*dim*sizeof(double));
+  AT = (double*)malloc(dim*dim*sizeof(double));
+
+  for(i = 0; i < dim*dim; i++)
+    A[i]=i*2.;
+
+
+
+
+  //printf_m(&A);
+
+  naife_transpose(A,AT,dim);
+
+  printf("A[3,2]=%f, AT[2,3]=%f\n",A[3*dim +2],AT[2*dim + 3]);
+
+  fast_transpose(A,AT,dim,block_size);
+
+  printf("A[3,2]=%f, AT[2,3]=%f\n",A[3*dim +2],AT[2*dim + 3]);
+
+
+
+
 }
