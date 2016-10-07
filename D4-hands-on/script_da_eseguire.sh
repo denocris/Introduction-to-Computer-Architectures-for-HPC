@@ -6,12 +6,17 @@
 rm -f output.txt
 touch output.txt
 
+mkdir -p openmp
 
 
-for vect_size in $(seq 100000 100000 10000000); do
+#export OMP_NUM_THREADS=1
+
+
+for vect_size in $(seq 10000 50000 6000000); do
 
     gcc -DSTREAM_ARRAY_SIZE=$vect_size -O3 -openmp stream.c -o stream.x
 
-    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$vect_size'/' >> output.txt
+
+    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$vect_size'/' >> openmp/output_openmp.txt
 
 done

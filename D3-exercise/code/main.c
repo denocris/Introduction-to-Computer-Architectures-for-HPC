@@ -48,7 +48,7 @@ void naife_transpose(){
     elaps_time = elaps_t_f - elaps_t_i;
     printf("%e\n",elaps_time);
 
-    print_m(&AT);
+    //print_m(&AT);
 
     deallocate_m(&A);
     deallocate_m(&AT);
@@ -85,7 +85,11 @@ void fast_transpose(){
     allocate_m(&buff,2,2);
     assign_zero_m(&buff);
 
+    double elaps_t_i;
+    double elaps_t_f;
+    double elaps_time;
 
+    elaps_t_i = seconds();
 
     for(l=0; l < num_bloks; l++){
       for(m=0; m < num_bloks; m++){
@@ -113,7 +117,12 @@ void fast_transpose(){
     }
 }
 
-    print_m(&AT);
+    elaps_t_f = seconds();
+
+    //print_m(&AT);
+
+    elaps_time = elaps_t_f - elaps_t_i;
+    printf("%e\n",elaps_time);
 
 
 
@@ -124,7 +133,7 @@ void fast_transpose(){
 
 
 int main(){
-  printf("-------------------------------------------------------------------------- \n");
+  //printf("-------------------------------------------------------------------------- \n");
 
   naife_transpose();
 
