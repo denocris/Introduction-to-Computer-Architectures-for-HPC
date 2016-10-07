@@ -11,10 +11,10 @@ touch h3c_v1M.txt
 
 for num_threads in $(seq 1 1 24); do
 
-    gcc -DSTREAM_ARRAY_SIZE=1000000 -O3 -fopenmp stream.c -o stream.x
+    gcc -DSTREAM_ARRAY_SIZE=500000 -O3 -fopenmp stream.c -o stream.x
 
     export OMP_NUM_THREADS=$num_threads
 
-    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v1M.txt.txt
+    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v1M.txt
 
 done
