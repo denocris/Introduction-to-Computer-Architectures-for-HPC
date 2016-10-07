@@ -9,9 +9,6 @@ touch output_vsizefix1M.txt
 mkdir -p openmp
 
 
-export OMP_NUM_THREADS=1
-
-
 for num_threads in $(seq 1 1 24); do
 
     export OMP_NUM_THREADS=$num_threads
