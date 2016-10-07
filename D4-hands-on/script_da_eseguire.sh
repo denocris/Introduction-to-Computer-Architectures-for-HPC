@@ -3,13 +3,11 @@
 #declare -a vsize=$(seq 1000 5000 21000)
 
 
-rm -f output.txt
-touch output.txt
+rm -f output_openmp10Thr.txt
+touch output_openmp10Thr.txt
 
 #mkdir -p openmp
 
-
-#export OMP_NUM_THREADS=1
 
 
 for vect_size in $(seq 10000 50000 6000000); do
