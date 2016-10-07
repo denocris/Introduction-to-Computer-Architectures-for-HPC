@@ -3,19 +3,18 @@
 #declare -a vsize=$(seq 1000 5000 21000)
 
 
-rm -f output_vsizefix7M.txt
-touch output_vsizefix7M.txt
+rm -f output_vsizefix100M.txt
+touch output_vsizefix100M.txt
 
-mkdir -p openmp
+#mkdir -p openmp
 
 
 for num_threads in $(seq 1 1 24); do
 
+    gcc -DSTREAM_ARRAY_SIZE=100000000 -O3 -openmp stream.c -o stream.x
+
     export OMP_NUM_THREADS=$num_threads
 
-    gcc -DSTREAM_ARRAY_SIZE=7000000 -O3 -openmp stream.c -o stream.x
-
-
-    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> output_vsizefix7M.txt
+    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> output_vsizefix100M.txt
 
 done

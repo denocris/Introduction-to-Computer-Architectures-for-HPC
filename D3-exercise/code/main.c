@@ -16,12 +16,12 @@ double seconds(){
 }
 
 
-void naife_transpose(){
+void naife_transpose(int dim){
 
     matrix_t A; // is the matrix A
     matrix_t AT;
 
-    int dim = 4;
+    //int dim = 4;
 
   // We allocate space for our objects
     allocate_m(&A,dim,dim);
@@ -54,14 +54,14 @@ void naife_transpose(){
     deallocate_m(&AT);
 }
 
-void fast_transpose(){
+void fast_transpose(int dim, int block_size){
 
 
 
     matrix_t A; // is the matrix A
     matrix_t AT;
 
-    int dim = 4;
+    //int dim = 4;
 
   // We allocate space for our objects
     allocate_m(&A,dim,dim);
@@ -79,7 +79,7 @@ void fast_transpose(){
 
     int num_bloks=2;
     int l,m;
-    int block_size=2;
+    //int block_size=2;
 
     matrix_t buff;
     allocate_m(&buff,2,2);
