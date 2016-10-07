@@ -3,7 +3,7 @@
 #declare -a vsize=$(seq 1000 5000 21000)
 
 
-num_thrs=20
+num_thrs=10
 
 rm -f h3c_T$num_thrs.txt
 touch h3c_T$num_thrs.txt
