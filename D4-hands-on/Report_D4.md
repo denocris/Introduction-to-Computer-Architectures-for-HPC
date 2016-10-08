@@ -7,7 +7,7 @@ When we have a lots of threads available, the bandwidth is high and decreases if
 ![Figure_1](fixthr.jpg)
 
 
-
+In the second figure, the vector (array) size is kept fixed and we tested the bandwithd against the number of threads. The best vector size seems to be 10^6 (green dots). The blue dots, which corresponds to a smaller vector size (10^5), have a worse bandwith. This could be related to the fact the the vector is too small in size and an increase of threads could only mess up the process. If now we take the red dots we can observe that, since the size of our vector is huge (beyond the cache capability), the increasing of the threads do not visibly benefits the bandwitdh.
 
 ![Figure_2](fixvsize.jpg)
 
