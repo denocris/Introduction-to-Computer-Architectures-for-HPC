@@ -6,8 +6,8 @@
 vect_size=$1
 
 
-rm -f h3c_v$vect_sizeM.txt
-touch h3c_v$vect_sizeM.txt
+rm -f h3c_v$vect_size.txt
+touch h3c_v$vect_size.txt
 
 #mkdir -p openmp
 
@@ -18,7 +18,7 @@ for num_threads in $(seq 1 1 24); do
 
     export OMP_NUM_THREADS=$num_threads
 
-    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v$vect_sizeM.txt
+    ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v$vect_size.txt
 
 done
 
