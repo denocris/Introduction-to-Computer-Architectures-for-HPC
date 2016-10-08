@@ -3,5 +3,5 @@
 ![Figure_1](fixthr.pdf)
 
 
-![Figure_2](fixvsize.pdf)
+![Figure_2](fixvsize.jpg)
 
