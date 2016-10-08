@@ -21,3 +21,5 @@ for num_threads in $(seq 1 1 24); do
     ./stream.x | grep  Triad | cut -f 2 -d: | sed 's/$/    '$num_threads'/' >> h3c_v$vect_sizeM.txt
 
 done
+
+rm script_nodo.sh.*
