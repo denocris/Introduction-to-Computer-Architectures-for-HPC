@@ -16,7 +16,7 @@ double seconds(){
 }
 
 
-void naife_transpose(double *A, double *AT, size_t dim){
+void slow_transpose(double *A, double *AT, size_t dim){
 
     int i,j;
     double elaps_t_i;
@@ -81,8 +81,8 @@ int main(){
   size_t dim, block_size;
   int i;
 
-  dim = 8192;
-  block_size = 64;
+  dim = 16384;
+  block_size = 256;
 
   A = (double*)malloc(dim*dim*sizeof(double));
   AT = (double*)malloc(dim*dim*sizeof(double));
@@ -95,13 +95,13 @@ int main(){
 
   //printf_m(&A);
 
-  naife_transpose(A,AT,dim);
+  slow_transpose(A,AT,dim);
 
-  printf("A[3,2]=%f, AT[2,3]=%f\n",A[3*dim +2],AT[2*dim + 3]);
+  //printf("A[3,2]=%f, AT[2,3]=%f\n",A[3*dim +2],AT[2*dim + 3]);
 
   fast_transpose(A,AT,dim,block_size);
 
-  printf("A[3,2]=%f, AT[2,3]=%f\n",A[3*dim +2],AT[2*dim + 3]);
+  //printf("A[3,2]=%f, AT[2,3]=%f\n",A[3*dim +2],AT[2*dim + 3]);
 
 
 
