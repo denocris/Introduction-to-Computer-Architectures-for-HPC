@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    277605,       6658]
-NotebookOptionsPosition[    274757,       6556]
-NotebookOutlinePosition[    275373,       6582]
-CellTagsIndexPosition[    275303,       6577]
+NotebookDataLength[    278574,       6684]
+NotebookOptionsPosition[    275726,       6582]
+NotebookOutlinePosition[    276342,       6608]
+CellTagsIndexPosition[    276272,       6603]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -6075,15 +6075,43 @@ Cell[BoxData[{
    RowBox[{"Import", "[", 
     RowBox[{
      RowBox[{"ToString", "[", 
-      RowBox[{"StringForm", "[", "\"\<h3c_v100K.txt\>\"", "]"}], "]"}], ",", 
+      RowBox[{"StringForm", "[", "\"\<h3c_v1.txt\>\"", "]"}], "]"}], ",", 
+     "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataTriad2", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"ToString", "[", 
+      RowBox[{"StringForm", "[", "\"\<h3c_v5.txt\>\"", "]"}], "]"}], ",", 
+     "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataTriad3", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"ToString", "[", 
+      RowBox[{"StringForm", "[", "\"\<h3c_v10.txt\>\"", "]"}], "]"}], ",", 
+     "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataTriad4", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"ToString", "[", 
+      RowBox[{"StringForm", "[", "\"\<h3c_v15.txt\>\"", "]"}], "]"}], ",", 
+     "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataTriad5", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"ToString", "[", 
+      RowBox[{"StringForm", "[", "\"\<h3c_v20.txt\>\"", "]"}], "]"}], ",", 
      "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"dataTriad2", "=", 
+   RowBox[{"dataTriad6", "=", 
     RowBox[{"Import", "[", 
      RowBox[{
       RowBox[{"ToString", "[", 
-       RowBox[{"StringForm", "[", "\"\<h3c_v1M.txt\>\"", "]"}], "]"}], ",", 
+       RowBox[{"StringForm", "[", "\"\<h3c_v30.txt\>\"", "]"}], "]"}], ",", 
       "\"\<Data\>\""}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -6135,18 +6163,16 @@ Cell[BoxData[{
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"\"\<\[EmptySmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
+      RowBox[{"\"\<\[FilledSmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"\"\<\[EmptySmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
+      RowBox[{"\"\<\[FilledSmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"\"\<\[EmptySmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
+      RowBox[{"\"\<\[FilledSmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"\"\<\[Times]\>\"", ",", "mrksize"}], "}"}], ",", 
+      RowBox[{"\"\<\[FilledSmallCircle]\>\"", ",", "mrksize"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"\"\<\[Times]\>\"", ",", "mrksize"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"\"\<\[Times]\>\"", ",", "mrksize"}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      RowBox[{"\"\<\[FilledSmallCircle]\>\"", ",", "mrksize"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -6157,16 +6183,14 @@ Cell[BoxData[{
        RowBox[{
         RowBox[{"{", 
          RowBox[{
-         "\"\<moves \!\(\*SuperscriptBox[\(10\), \(6\)]\)\>\"", ",", 
-          "\"\<moves \!\(\*SuperscriptBox[\(10\), \(7\)]\)\>\"", ",", 
-          "\"\<moves \!\(\*SuperscriptBox[\(10\), \(8\)]\)\>\"", ",", 
-          "\"\<moves \!\(\*SuperscriptBox[\(10\), \(9\)]\)\>\""}], "}"}], ",",
-         "colors", ",", 
+         "\"\<threads = 1\>\"", ",", "\"\<threads = 6\>\"", ",", 
+          "\"\<threads = 11\>\"", ",", "\"\<threads = 16\>\"", ",", 
+          "\"\<threads = 21\>\""}], "}"}], ",", "colors", ",", 
         RowBox[{"{", 
          RowBox[{"16", ",", 
           RowBox[{"FontFamily", "\[Rule]", "\"\<LMRoman10\>\""}]}], "}"}]}], 
        "]"}], "[", 
-      RowBox[{"mrks", "[", "25", "]"}], "]"}], "[", 
+      RowBox[{"mrks", "[", "15", "]"}], "]"}], "[", 
      RowBox[{
       RowBox[{"{", 
        RowBox[{"\"\<Scaled\>\"", ",", "pos"}], "}"}], ",", "1.5", ",", "1.4", 
@@ -6182,11 +6206,12 @@ Cell[BoxData[{
       RowBox[{"vsize100K", ","}], "*)"}], "vsize1M", "}"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{"show", "=", 
-  RowBox[{"Show", "[", "\[IndentingNewLine]", 
+  RowBox[{"Show", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ListPlot", "[", 
      RowBox[{"data", ",", "\[IndentingNewLine]", 
       RowBox[{"PlotRange", "\[Rule]", "All"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Joined", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
       RowBox[{"PlotStyle", "\[Rule]", 
        RowBox[{"Table", "[", 
         RowBox[{
@@ -6198,16 +6223,18 @@ Cell[BoxData[{
            RowBox[{"Length", "@", "data"}]}], "}"}]}], "]"}]}], ",", 
       "\[IndentingNewLine]", 
       RowBox[{"PlotMarkers", "\[Rule]", 
-       RowBox[{"mrks", "[", "25", "]"}]}], ",", "\[IndentingNewLine]", 
-      RowBox[{"Joined", "\[Rule]", "False"}], ",", 
-      RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+       RowBox[{"mrks", "[", "15", "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Axes", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
       RowBox[{"PlotRangeClipping", "\[Rule]", "True"}]}], "]"}], ",", 
     "\[IndentingNewLine]", 
+    RowBox[{"legend", "[", 
+     RowBox[{"{", 
+      RowBox[{"0.87", ",", "0.70"}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
     RowBox[{"Graphics", "@", 
      RowBox[{"Text", "[", 
       RowBox[{
        RowBox[{"Style", "[", 
-        RowBox[{"\"\<num_threads\>\"", ",", 
+        RowBox[{"\"\<vect_size\>\"", ",", 
          RowBox[{"FontFamily", "\[Rule]", "\"\<LMRoman10\>\""}], ",", "22"}], 
         "]"}], ",", 
        RowBox[{"Scaled", "[", 
@@ -6229,7 +6256,6 @@ Cell[BoxData[{
            RowBox[{
             RowBox[{"-", "0.13"}], ",", "0.5"}], "}"}], "]"}]}], "]"}], ",", 
        RowBox[{"90", "Degree"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
-    RowBox[{"PlotRange", "\[Rule]", "All"}], ",", "\[IndentingNewLine]", 
     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
     RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
     RowBox[{"FrameStyle", "\[Rule]", "MyFrameStyle"}], ",", 
@@ -6251,14 +6277,14 @@ Cell[BoxData[{
     "\[IndentingNewLine]", 
     RowBox[{"ImageSize", "\[Rule]", "700"}], ",", "\[IndentingNewLine]", 
     RowBox[{"Prolog", "\[Rule]", "rasterProlog"}]}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "]"}]}]}], "Input",
+   "]"}]}]}], "Input",
  CellChangeTimes->{{3.68482037276481*^9, 3.684820443038678*^9}, {
   3.684820685499498*^9, 3.684820686713653*^9}, {3.6848209868555527`*^9, 
   3.684820995360708*^9}, {3.684832935778408*^9, 3.684832937136292*^9}, {
   3.68484005081472*^9, 3.684840052662956*^9}, {3.684847924288495*^9, 
   3.684847940666256*^9}, {3.684848470774228*^9, 3.684848536213415*^9}, {
   3.684848576595536*^9, 3.684848578419054*^9}, {3.6848491726538687`*^9, 
-  3.684849200186535*^9}}],
+  3.684849200186535*^9}, {3.684921735015019*^9, 3.6849218162285013`*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{{}, {
@@ -6576,7 +6602,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Start", 275219, 6571}
+ {"Start", 276188, 6597}
  }
 *)
 (*NotebookFileOutline
@@ -6649,12 +6675,12 @@ Cell[235744, 5543, 9443, 261, 770, "Input"],
 Cell[245190, 5806, 11718, 260, 480, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[256945, 6071, 7184, 189, 572, "Input"],
-Cell[264132, 6262, 2266, 60, 480, "Output"]
+Cell[256945, 6071, 8153, 215, 685, "Input"],
+Cell[265101, 6288, 2266, 60, 480, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[266435, 6327, 6324, 166, 538, "Input"],
-Cell[272762, 6495, 1931, 54, 480, "Output"]
+Cell[267404, 6353, 6324, 166, 538, "Input"],
+Cell[273731, 6521, 1931, 54, 480, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
