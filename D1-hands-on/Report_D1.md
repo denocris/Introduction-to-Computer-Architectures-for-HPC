@@ -12,8 +12,10 @@ In the first figure we can see weak and strong scalability.
 
 In the following plot it is shown the speedup. We can appreciate that if our code has few moves (10^6 − 10^7 ) then is not convenient to parallelize it. Otherwise, if the code has a great number of moves (say ≥ 10^8) then it is worthwhile to parallelize it.
 
-![Figure 1](speedup.jpg)
+![Figure 2](speedup.jpg)
 
 In this third plot the efficiency (speedup/processors) is represented against the number of processors. The different lines are related to different number of moves in our computation. 
 
-![Figure 1](eff.jpg)
+![Figure 3](eff.jpg)
+
+Every details about the code can be found in the folder code/.

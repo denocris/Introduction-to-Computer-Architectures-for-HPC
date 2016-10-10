@@ -6,3 +6,5 @@ We develop two functions to compute the transpose of a square matrix. Everything
 ![Figure_1](transpose.jpg)
 
 The constant dashed lines in the figure represent the computational time of slow function. This is always greater than the fast function time.
+
+Every details about the code can be found in the folder code/.
