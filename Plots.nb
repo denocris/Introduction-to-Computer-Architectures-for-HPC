@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    329397,       7709]
-NotebookOptionsPosition[    326461,       7604]
-NotebookOutlinePosition[    327077,       7630]
-CellTagsIndexPosition[    327007,       7625]
+NotebookDataLength[    329610,       7711]
+NotebookOptionsPosition[    326674,       7606]
+NotebookOutlinePosition[    327290,       7632]
+CellTagsIndexPosition[    327220,       7627]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3545,10 +3545,10 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Report P1.2 - D2:  ", "Subsubsection",
+Cell["Report P1.2 - D2: Pipeline and Offsets", "Subsubsection",
  CellChangeTimes->{{3.676175392828382*^9, 3.676175413356099*^9}, {
   3.6844959868214817`*^9, 3.684495987588022*^9}, {3.684639585712358*^9, 
-  3.684639641313637*^9}}],
+  3.684639641313637*^9}, {3.685075694976613*^9, 3.6850757006255217`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -5046,15 +5046,16 @@ WrI=
  CellChangeTimes->{{3.6849390980834103`*^9, 3.684939118117432*^9}, 
    3.684939322690113*^9, 3.684939409646326*^9, 3.6849394783338833`*^9}]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Report P1.2 - D3:  ", "Subsubsection",
+Cell["Report P1.2 - D3: Fast transpose vs slow transpose", "Subsubsection",
  CellChangeTimes->{{3.676175392828382*^9, 3.676175413356099*^9}, {
   3.6844959868214817`*^9, 3.684495987588022*^9}, {3.684639585712358*^9, 
   3.684639641313637*^9}, {3.6847615712922773`*^9, 3.6847615746667852`*^9}, {
-  3.6849330055582237`*^9, 3.684933006034658*^9}}],
+  3.6849330055582237`*^9, 3.684933006034658*^9}, {3.685075705488119*^9, 
+  3.685075719367716*^9}}],
 
 Cell[CellGroupData[{
 
@@ -5596,10 +5597,11 @@ gt/QurDxzqo8OH/tC9nZfD75cL5Si4gH+zIEf7o899f//xF8AEEXeYI=
 
 Cell[CellGroupData[{
 
-Cell["Report P1.2 - D4:  ", "Subsubsection",
+Cell["Report P1.2 - D4: Stream banchmark ", "Subsubsection",
  CellChangeTimes->{{3.676175392828382*^9, 3.676175413356099*^9}, {
   3.6844959868214817`*^9, 3.684495987588022*^9}, {3.684639585712358*^9, 
-  3.684639641313637*^9}, {3.6847615712922773`*^9, 3.6847615746667852`*^9}}],
+  3.684639641313637*^9}, {3.6847615712922773`*^9, 3.6847615746667852`*^9}, {
+  3.68507573933739*^9, 3.6850757522862997`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -7624,7 +7626,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Start", 326923, 7619}
+ {"Start", 327136, 7621}
  }
 *)
 (*NotebookFileOutline
@@ -7681,31 +7683,31 @@ Cell[138073, 3371, 7333, 170, 480, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[145455, 3547, 210, 3, 19, "Subsubsection"],
-Cell[145668, 3552, 6763, 189, 362, "Input"],
+Cell[145455, 3547, 277, 3, 19, "Subsubsection"],
+Cell[145735, 3552, 6763, 189, 362, "Input"],
 Cell[CellGroupData[{
-Cell[152456, 3745, 13097, 335, 1042, "Input"],
-Cell[165556, 4082, 36193, 881, 480, "Output"],
-Cell[201752, 4965, 3256, 81, 514, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[205057, 5052, 311, 4, 25, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[205393, 5060, 10719, 275, 770, "Input"],
-Cell[216115, 5337, 11847, 255, 480, "Output"]
+Cell[152523, 3745, 13097, 335, 1042, "Input"],
+Cell[165623, 4082, 36193, 881, 480, "Output"],
+Cell[201819, 4965, 3256, 81, 480, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[228011, 5598, 260, 3, 19, "Subsubsection"],
+Cell[205124, 5052, 391, 5, 19, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[228296, 5605, 9470, 262, 770, "Input"],
-Cell[237769, 5869, 67735, 1188, 480, 16291, 345, "CachedBoxData", "BoxData", \
+Cell[205540, 5061, 10719, 275, 770, "Input"],
+Cell[216262, 5338, 11847, 255, 480, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[228158, 5599, 326, 4, 19, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[228509, 5607, 9470, 262, 770, "Input"],
+Cell[237982, 5871, 67735, 1188, 480, 16291, 345, "CachedBoxData", "BoxData", \
 "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[305541, 7062, 10529, 285, 762, "Input"],
-Cell[316073, 7349, 10324, 248, 480, "Output"]
+Cell[305754, 7064, 10529, 285, 762, "Input"],
+Cell[316286, 7351, 10324, 248, 480, "Output"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]]
