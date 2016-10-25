@@ -23,7 +23,7 @@ This benchmark was done between two processors on the master node of Ulysses.
 The command used was mpirun -np 2 ./IMB-MPI1 PingPong
 
 
-``
+```
 PingPong
 
 ---------------------------------------------------
@@ -57,7 +57,7 @@ bytes #repetitions      t[usec]   Mbytes/sec
 4194304     10       978.10      4089.56
 
 
-All processes entering MPI_Finalize ``
+All processes entering MPI_Finalize ```
 
 
 
