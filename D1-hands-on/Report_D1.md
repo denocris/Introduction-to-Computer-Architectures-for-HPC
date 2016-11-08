@@ -1,9 +1,14 @@
 # Report: weak and strong scalability
 
-We have seen the weak and strong scalability. We tested a simple mote-carlo code to compute pi, both in a serial manner and a parallel one. The task was to establish when is worthwhile to parallelize a code. I wrote two bash script to implement the weak and strong approach and extract the elapse time of the execution. These are:
+We have seen the weak and strong scalability. 
 
-- pi_scrip_w.txt
-- pi_scrip_s.txt
+- Weak scalability: measures how the speedup varies with the number of processor for a fixed problem size per processor.
+- Strong scalability: measures how the speedup varies with the number of processor for a fixed problem size.
+
+We tested a simple mote-carlo code to compute pi, both in a serial manner and a parallel one. The task was to establish when is worthwhile to parallelize a code. I wrote two bash script to implement the weak and strong approach and extract the elapse time of the execution. These are:
+
+- pi_scrip_w.sh
+- pi_scrip_s.sh
 
 In the first figure we can see weak and strong scalability.
 

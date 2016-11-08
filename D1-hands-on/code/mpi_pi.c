@@ -1,8 +1,8 @@
 /*
  * Copyright (C) 2015 - 2016 Master in High Performance Computing
  *
- * Adapted from the net by  Giuseppe Brandino. 
- * Last modified by Alberto Sartori. 
+ * Adapted from the net by  Giuseppe Brandino.
+ * Last modified by Alberto Sartori.
  */
 
 
@@ -20,9 +20,9 @@ int main ( int argc , char *argv[ ] )
   double x, y ;
 
   // number of points inside the circle
-  long long int M, local_M ; 
+  long long int M, local_M ;
   double pi ;
-  
+
   int myid , numprocs , proc ;
   MPI_Status status;
 
@@ -42,15 +42,15 @@ int main ( int argc , char *argv[ ] )
 
   long long int N = atoi(argv[1]);
 
-  // initialize random numbers 
+  // initialize random numbers
   srand48(SEED*myid) ; // seed the number generator
   local_M=0;
   unsigned int i;
   for (i=0; i<N ; i++) {
     // take a point P(x,y) inside the unit square
-    x = drand48(); 
+    x = drand48();
     y = drand48();
-      
+
     // check if the point P(x,y) is inside the circle
     if ((x*x + y*y)<1)
       local_M++;
@@ -73,5 +73,3 @@ int main ( int argc , char *argv[ ] )
   MPI_Finalize() ; // let MPI finish up /
 
 }
-
-
