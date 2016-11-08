@@ -1,5 +1,10 @@
 # Report: Pipeline and Offsets
 
+Every details about the code can be found in the folder code/.
+
+- ex01.c
+- script_vectsizefix.sh
+
 The program allocates a vector of 100K elements and performs the operation
 
 A[i] = s*A[i + offset],
@@ -8,4 +13,3 @@ where the offset can be +1, 0, -1. The idea is to compute the number of operatio
 
 ![Fifure 1](pipeline.jpg)
 
-Every details about the code can be found in the folder code/.

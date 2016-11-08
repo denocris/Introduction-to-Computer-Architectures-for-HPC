@@ -1,16 +1,16 @@
 /*
  * Copyright (C) 2001-2013 The Abdus Salam, International Centre of Theoretical Physics (ICTP)
  *
- * This file is distributed under the terms of the GNU General Public License. 
- * See http://www.gnu.org/copyleft/gpl.txt 
+ * This file is distributed under the terms of the GNU General Public License.
+ * See http://www.gnu.org/copyleft/gpl.txt
  *
  * The code was developed for the exercise session of M1.2 - HPC Master SISSA/ICTP
  *
  * Author: Ivan Girotto
  * Last update: Sept-2015
- * 
+ *
  */
- 
+
 #include <time.h>
 #include <sys/time.h>
 #include <stdio.h>
@@ -82,8 +82,8 @@ int main(int argc, char **argv)
     vector_add_noopt(a,b,c,dim);
 
     /* run vector_add_noopt on CPU and measure time */
-    
-    
+
+
     /* check result */
     flag=0;
     for (i=0; i < dim; ++i) {
@@ -96,11 +96,11 @@ int main(int argc, char **argv)
     }
 
     /* run 8x unroll version and measure time */
-    
-    // 
+
+    //
     // call the vector_add_unroll8 function
     // print the time
-    
+
     /* check result */
     // check the flags again.
 
