@@ -19,10 +19,10 @@ export OMP_NUM_THREADS=1
 
 for N in ${Nmatrix[@]};
 do
-    for Nblock in ${Nblock};
+    for Nbls in ${Nblock};
     do
-    FILE="xhpl.openblas $Ns $NBs"
-    awk -v Ns="$Ns" '/NumNs/{gsub(/NumNs/, Ns )};{print}' HPL.dat.orig | awk  -v NBs="$NBs" '/NumNBs/{gsub(/NumNBs/, NBs )};{print}' > HPL.dat
+    FILE="xhpl.openblas $N $Nbls"
+    awk -v N="$N" '/Nmatrix/{gsub(/Nmatrix/, N )};{print}' HPL.dat.orig | awk  -v Nbls="$Nbls" '/Nblock/{gsub(/Nblock/, Nbls )};{print}' > HPL.dat
     mpirun -np 24 /lustre/mhpc/eas/hpl/bin/xhpl.openblas | tee results/$FILE
 
     done
