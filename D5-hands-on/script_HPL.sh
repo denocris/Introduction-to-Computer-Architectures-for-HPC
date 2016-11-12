@@ -23,7 +23,7 @@ do
     do
     FILE="xhpl.openblas $N $Nbls"
     awk -v N="$N" '/Nmatrix/{gsub(/Nmatrix/, N )};{print}' HPL.dat.orig | awk  -v Nbls="$Nbls" '/Nblock/{gsub(/Nblock/, Nbls )};{print}' > HPL.dat
-    mpirun -np 24 /lustre/mhpc/eas/hpl/bin/xhpl.openblas | tee results/$FILE
+    mpirun -np 24 /lustre/mhpc/eas/hpl/bin/xhpl.openblas | tee hpl_data/$FILE
 
     done
 done
