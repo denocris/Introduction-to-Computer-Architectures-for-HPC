@@ -11,8 +11,11 @@ module load openmpi
 module load openblas/0.2.14/gnu/4.8.3
 module load gnu
 
-Nmatrix=(57856 65536)
-Nblock=(128 256)
+#Nmatrix=(57856 65536)
+#Nblock=(128 256)
+
+Nmatrix=(1024 4096)
+Nblock=(32 128)
 
 
 export OMP_NUM_THREADS=1
