@@ -7,6 +7,7 @@ cd $PBS_O_WORKDIR
 rm -f HPL.dat
 mkdir hpl_data
 
+module purge
 module load openmpi
 module load openblas/0.2.14/gnu/4.8.3
 module load gnu
