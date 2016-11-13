@@ -2,15 +2,15 @@
 #PBS -l nodes=1:ppn=24
 #PBS -l walltime=00:15:00
 
-module load gnu
-cd $PBS_O_WORKDIR
+#module load gnu
+#cd $PBS_O_WORKDIR
 
 rm -rf data/*
 mkdir -p data
 
 LOOP_SIZE=1000
-MIN_VECTOR_SIZE=1000
-MAX_VECTOR_SIZE=100000
+MIN_VECTOR_SIZE=100
+MAX_VECTOR_SIZE=1000000
 
 #LOOP_SIZE=100
 #MIN_VECTOR_SIZE=1000
