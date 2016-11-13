@@ -2,8 +2,8 @@
 #PBS -l nodes=1:ppn=24
 #PBS -l walltime=00:15:00
 
-#module load gnu
-#cd $PBS_O_WORKDIR
+module load gnu
+cd $PBS_O_WORKDIR
 
 rm -rf data/*
 mkdir -p data
