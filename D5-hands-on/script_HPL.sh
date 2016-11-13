@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -l nodes=1:ppn=24
-#PBS -l walltime=00:30:00
+#PBS -l walltime=1000
 
 cd $PBS_O_WORKDIR
 
@@ -12,20 +12,17 @@ module load openmpi
 module load openblas/0.2.14/gnu/4.8.3
 module load gnu
 
-
-Nmatrix=(256 512)
-Nblock=(16 32)
-
+NumNs=(256 512)
+NumNBs=(16 32)
 
 export OMP_NUM_THREADS=1
 
-for N in ${Nmatrix[@]};
+for Ns in ${NumNs[@]};
 do
-    for Nbls in ${Nblock[@]};
+    for NBs in ${NumNBs[@]};
     do
-    FILE="xhpl.openblas $N $Nbls"
-    awk -v N="$N" '/Nmatrix/{gsub(/Nmatrix/, N )};{print}' HPL.dat.orig | awk  -v Nbls="$Nbls" '/Nblock/{gsub(/Nblock/, Nbls )};{print}' > HPL.dat
-    mpirun -np 24 /lustre/mhpc/eas/hpl/bin/xhpl.openblas | tee hpl_data/$FILE
-
+        FILE="xhpl.openblas $Ns $NBs"
+        awk -v Ns="$Ns" '/NumNs/{gsub(/NumNs/, Ns )};{print}' HPL.dat.orig | awk  -v NBs="$NBs" '/NumNBs/{gsub(/NumNBs/, NBs )};{print}' > HPL.dat
+        mpirun -np 24 /lustre/mhpc/eas/hpl/bin/xhpl.openblas | tee hpl_data/$FILE
     done
 done
