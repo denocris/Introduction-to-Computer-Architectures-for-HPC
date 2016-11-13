@@ -12,8 +12,8 @@ module load openmpi
 module load openblas/0.2.14/gnu/4.8.3
 module load gnu
 
-NumNs=(256 512)
-NumNBs=(16 32)
+NumNs=(57856 65536)
+NumNBs=(128 256)
 
 export OMP_NUM_THREADS=1
 
