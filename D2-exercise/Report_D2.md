@@ -3,7 +3,7 @@
 Every details about the code can be found in the folder code/.
 
 - ex01.c
-- script_vectsizefix.sh
+- script_offset.sh
 
 The program allocates a vector of 100K elements and performs the operation
 
