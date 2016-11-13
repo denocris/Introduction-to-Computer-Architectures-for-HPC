@@ -23,7 +23,7 @@
 
 
 //#define LOOP_SIZE 10
-#define VECTOR_SIZE 10000000
+//#define VECTOR_SIZE 10000000
 
 double seconds(){
 
@@ -43,64 +43,51 @@ void dummy(double * temp){
 // The funcion compute(...) return the elapsed time needed to complete
 // the vetor upgrade. The number of operation are stored into the
 // variable n_op
-double compute( double * vector, double scalar, size_t size, int offset, size_t * n_op ){
+double compute( double * vector, double scalar, size_t OFFSET, size_t * n_op ){
+
+
+  int count, i;
 
   double elaps_time1;
   elaps_time1 = seconds();
-  int count, i;
 
-  for( count = 0; count < size; count++ ){
+  for( count = 0; count < LOOP_SIZE; count++ ){
     for( i = 0; i < VECTOR_SIZE; i++){
 
-    vector[i] = scalar * vector[i + offset];
+    vector[i] = scalar * vector[i + OFFSET];
   }
 
     // leave this dummy check to avoid compiler optimization between the two loops
     //if( vector[VECTOR_SIZE/2] < 0 ) dummy(&vector[VECTOR_SIZE/2]);
-    if( vector[size/2] < 0 ) dummy(&vector[size/2]);
+    if( vector[VECTOR_SIZE/2] < 0 ) dummy(&vector[LOOP_SIZE/2]);
 }
 
 // compute the number of operations performed
-  *n_op = VECTOR_SIZE*size;
-
-
+  *n_op = VECTOR_SIZE*LOOP_SIZE;
 
   double elaps_time2;
   elaps_time2 = seconds();
 
-  double elaps_time;
-  elaps_time = elaps_time2 - elaps_time1;
 
-  return elaps_time;
+  return elaps_time2 - elaps_time1;
 
 }
 
 int main(int argc, char * argv[]){
 
-
-  size_t size = atoi(argv[1]);
-  size_t n_op=0;
-
   double *v;
-  double scalar=2;
+  double scalar = 2;
+  double elapse_time;
+
+  size_t n_op;
 
   v = (double *)malloc(VECTOR_SIZE*sizeof(double));
-  //double v[size]
 
-  double time_p1;
-  time_p1 = compute(v,scalar,size,1,&n_op);
-  double nFLOPS_p1=(double)n_op/(double)time_p1;
-
-  double time_0;
-  time_0 = compute(v,scalar,size,0,&n_op);
-  double nFLOPS_0=(double)n_op/(double)time_0;
-
-  double time_m1;
-  time_m1 = compute(v,scalar,size,-1,&n_op);
-  double nFLOPS_m1=(double)n_op/(double)time_m1;
-
-  printf("%e    %e    %e    %zu\n",nFLOPS_p1,nFLOPS_0,nFLOPS_m1,n_op);
+  elapse_time = compute(v,scalar,offset,&n_op);
+  printf("%f\n",elapse_time);
 
   free(v);
+
+  return 0;
 
 }
