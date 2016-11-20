@@ -128,7 +128,7 @@ bytes #repetitions      t[usec]   Mbytes/sec
 All processes entering MPI_Finalize
 ```
 
-We can clearly see that, with respect to the previous case, the velocity is sensibly decreased.
+We can clearly see that, with respect to the previous case, the velocity is considerably decreased.
 
 
 
