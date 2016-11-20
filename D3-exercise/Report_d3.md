@@ -22,6 +22,7 @@ for(i=0; i < dim; i+=block_size)
 }
 ```
 
+
 We checked the performance for four different matrix size (2048,4096,8192,16384) and in the case of the fast function we tried different block sizes. ATTENTION: on the y-axes we have Log(time).
 
 
