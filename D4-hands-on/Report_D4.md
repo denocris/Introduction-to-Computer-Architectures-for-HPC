@@ -1,8 +1,8 @@
 # Report of Day 4: Stream Benchmark
 
-The analysis that follows was done using the c3e cluster. The stream benchmark checks the memory bandwidth while performing four elementary operations (Copy, Scale, Add, Triad)
-In the following plot we estimate the overall bandwidth of a node, testing it with an increasing vector (array) size for a different numebr of swich-on threads, from 1 to 21. This operation was done using the ```OMP_NUM_THREADS``` environment variable.
-For each series (representad by different colors) we can see that when the size of the vector exceeds the L3 cache capability ( around `30MB`. This could be reached considering a vector of double with size `2*10^6`. In the stream code, we have three vectors), then it begins to be stored in the RAM memory. Indeed, the triad (MB/s) considerably drops. 
+The analysis that follows was done using the c3e cluster. The stream benchmark checks the memory bandwidth while performing four elementary operations (Copy, Scale, Add, Triad).
+In the following plot we estimate the overall bandwidth of a node, testing it with an increasing vector (array) size for a different number of swich-on threads, from 1 to 21. This operation was done using the ```OMP_NUM_THREADS``` environment variable. 
+For each series (representad by different colors) we can see that when the size of the vector exceeds the L3 cache capability, then it begins to be stored in the RAM memory. Indeed, the triad (MB/s) considerably drops. The L3 cache capability is around `30MB`. This could be reached considering a vector of double with size `2*10^6`. In the stream code, we have three vectors
 
 
 When we have a lots of threads available, the bandwidth is high and decreases if we decrease the number of threads.
@@ -14,8 +14,35 @@ In the second figure, the vector (array) size is kept fixed and we tested the ba
 
 ![Figure_2](fixvsize.jpg)
 
-Every details about the code can be found in the folder code/.
+We can also improve our analysis using the command `numactl` and exploiting the topology of the hardware. Using `numactl --hardware`, we can find:
 
+```
+available: 2 nodes (0-1)
+node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11
+node 0 size: 32726 MB
+node 0 free: 22526 MB
+node 1 cpus: 12 13 14 15 16 17 18 19 20 21 22 23
+node 1 size: 32768 MB
+node 1 free: 24163 MB
+node distances:
+node   0   1 
+0:  10  21 
+1:  21  10 
+
+```
+just tested a single cpu and change the socket from which DRAM is used. To run the test I first set the threads to 12 and compiled with a vector size of N=10^7. In this way, the cpu and the memory used are on the same socket of the node, the result bendwidth is roughly 3.2 GB/s. The command is:
+
+```
+numactl --cpunodebind=0 --membind=0 ./stream
+```
+
+in this way the cpu and the memory used are on the same socket of the node, the result is roughly 3.3 GB/s.
+
+One can now force the ccpu to use the memory on the other socket (each node has two sockets) and the result is a drop of velocity to 2.1 GB/s
+The command used was:
+```
+numactl --cpunodebind=0 --membind=1 ./stream
+```
 
 
 # Report of Day 4: PingPong Benchmark
