@@ -56,7 +56,7 @@ numactl --cpunodebind=0 --membind=1 ./stream
 
 # Report of Day 4: PingPong Benchmark
 
-The idea is to measure the latency (for small bites) and the bandwitdh (for large bites) between cpus that exchange data. We have to Ccompare the results we obtain while running the tests for cores in the same socket, and for cores on different sockets.
+The idea is to measure the latency (for small bites) and the bandwitdh (for large bites) between cpus that exchange data. We have to compare the results we obtain while running the tests for cores in the same socket, and for cores on different sockets.
 
 The following benchmark was done between two processors on the same socket of an Ulysses's node. 
 The command used was `mpirun -np 2 ./IMB-MPI1 PingPong`
