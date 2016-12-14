@@ -17,3 +17,52 @@ where the offset can be `+1`, `0`, `-1`. The idea is to compute the number of op
 
 ![Figure 2](gflops.jpg)
 
+
+
+# Report: Vector Unrolling and Optimizations 
+
+The idea is to develop a program that performs vector addition, unrolling eight entries per for loop. Compute the wall time for non optimized vector addition and compare it with the implemented vector unrolling version. Compare timing for the two different implementation.
+
+If we want ot naively (not unrolled) implement vector addiction we can use the following code
+
+```c
+void vector_add(float *a, float *b, float *c, int dim)
+    {
+        int i;
+
+        for (i = 0; i < dim; ++i) {
+        c[i] = a[i] + b[i];
+        }
+    }
+```
+
+While if we implement unrolled loops (with eight entries) the addiction is given by
+
+```c
+void vector_add_unroll8(const float * a, const float *  b,
+float * c, int dim)
+    {
+        int i,rest;
+
+        rest = dim % 8; // entries that exceed dim % 8.
+
+        // if the some rest is present
+        for (i = 0; i < rest; i++) {
+            c[i] = a[i] + b[i];
+            }
+
+        // loop over 8 entries at a time.
+        for ( i = rest; i < dim; i+=8) {
+
+            c[i] = a[i] + b[i];
+            c[i+1] = a[i+1] + b[i+1];
+            c[i+2] = a[i+2] + b[i+2];
+            c[i+3] = a[i+3] + b[i+3];
+            c[i+4] = a[i+4] + b[i+4];
+            c[i+5] = a[i+5] + b[i+5];
+            c[i+6] = a[i+6] + b[i+6];
+            c[i+7] = a[i+7] + b[i+7];
+        }
+
+}
+```
