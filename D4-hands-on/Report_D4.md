@@ -14,7 +14,7 @@ In the following plot we estimate the overall bandwidth of a node, testing it wi
 For each series (representad by different colors) we can see that when the size of the vector exceeds the L3 cache capability, then it begins to be stored in the RAM memory. Indeed, the triad (MB/s) considerably drops. The L3 cache capability is around `30MB`. This could be reached considering a vector of double with size `2*10^6`. In the stream code, we have three vectors
 
 
-When we have a lots of threads available, the bandwidth is high and decreases if we decrease the number of threads.
+When we have a lots of threads available, the bandwidth is high and decreases about a factor of 10 if we decrease the number of threads from 21 to 1.
 
 ![Figure_2](fixthr.jpg)
 
