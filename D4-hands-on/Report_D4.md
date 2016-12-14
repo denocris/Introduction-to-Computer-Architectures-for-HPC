@@ -8,7 +8,7 @@ First of all we estimate the overall bandwidth of just one core in a node. To do
 
 ![Figure_1](onethr.png)
 
-In this case, the bandwidths start at higher values of around 22 GB/s for lower array sizes that still fit in the L3 cache. The bandwidths then decrease to settle at 12 GB/s when the array size exceeds the cache so that the RAM is now being used. 
+In this case, the bandwidth starts at higher values of around 22 GB/s for lower array sizes that still fit in the L3 cache. The bandwidths then decrease to settle at 12 GB/s when the array size exceeds the cache so that the RAM is now being used. 
 
 In the following plot we estimate the overall bandwidth of a node, testing it with an increasing vector (array) size for a different number of swich-on threads, from 1 to 21. This operation was done using the ```OMP_NUM_THREADS``` environment variable. 
 For each series (representad by different colors) we can see that when the size of the vector exceeds the L3 cache capability, then it begins to be stored in the RAM memory. Indeed, the triad (MB/s) considerably drops. The L3 cache capability is around `30MB`. This could be reached considering a vector of double with size `2*10^6`. In the stream code, we have three vectors
@@ -19,7 +19,7 @@ When we have a lots of threads available, the bandwidth is high and decreases ab
 ![Figure_2](fixthr.jpg)
 
 
-In the second figure, the vector (array) size is kept fixed and we tested the bandwithd against the number of threads. The general behaviour is that, for each fixed vector size, the bandwidth increases as the number of threads increases. The best vector size seems to be 10^6 (green dots). The blue dots, which corresponds to a smaller vector size (10^5), have a worse bandwith. This could be related to the fact the the vector is too small in size and an increase of threads could only mess up the process, in particular the parallelization overhead is relatively heavy. If now we take the red dots we can observe that, since the size of our vector is huge (beyond the L3 cache capability), the increasing of the threads do not visibly benefits the bandwitdh.
+In the second figure, the vector (array) size is kept fixed and we tested the bandwithd against the number of threads. The general behaviour is that, for each fixed vector size, the bandwidth increases as the number of threads increases. The best vector size seems to be 10^6 (green dots). The blue dots, which corresponds to a smaller vector size (10^5), have a worse bandwidth. This could be related to the fact the the vector is too small in size and an increase of threads could only mess up the process, in particular the parallelization overhead is relatively heavy. If now we take the red dots we can observe that, since the size of our vector is huge (beyond the L3 cache capability), the increasing of the threads do not visibly benefits the bandwitdh.
 
 ![Figure_3](fixvsize.jpg)
 
@@ -45,9 +45,7 @@ just tested a single cpu and change the socket from which DRAM is used. To run t
 numactl --cpunodebind=0 --membind=0 ./stream
 ```
 
-in this way the cpu and the memory used are on the same socket of the node, the result is roughly 3.3 GB/s.
-
-One can now force the ccpu to use the memory on the other socket (each node has two sockets) and the result is a drop of velocity to 2.1 GB/s
+One can now force the cpu to use the memory on the other socket (each node has two sockets) and the result is a drop of velocity to 2.1 GB/s
 The command used was:
 ```
 numactl --cpunodebind=0 --membind=1 ./stream
