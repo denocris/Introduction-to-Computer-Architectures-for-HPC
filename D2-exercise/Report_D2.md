@@ -1,6 +1,6 @@
 # Report: Pipeline and Offsets
 
-Every details about the code can be found in the folder code/.
+Every details about the code can be found in the folder code_ex1/.
 
 - ex01.c
 - script_offset.sh
@@ -20,6 +20,11 @@ where the offset can be `+1`, `0`, `-1`. The idea is to compute the number of op
 
 
 # Report: Vector Unrolling and Optimizations 
+
+Every details about the code can be found in the folder code_ex2/.
+
+- vect_unroll.c
+- vect_unroll_script.sh
 
 The idea is to develop a program that performs vector addition, unrolling eight entries per for loop. Compute the wall time for non optimized vector addition and compare it with the implemented vector unrolling version. Compare timing for the two different implementation.
 
