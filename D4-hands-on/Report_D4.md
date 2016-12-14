@@ -1,18 +1,25 @@
 # Report of Day 4: Stream Benchmark
 
 The analysis that follows was done using the c3e cluster. The stream benchmark checks the memory bandwidth while performing four elementary operations (Copy, Scale, Add, Triad).
+
+The idea is to understand and properly utilizing the mutli-core architecture of modern computer systems for high performance computing.
+
+First of all we estimate the overall bandwidth of just one core in a node. To do this, we set `OMP_NUM_THREADS=1` and vary the array sizes, with results shown in the following figure:
+
+![Figure_1](onethr.png)
+
 In the following plot we estimate the overall bandwidth of a node, testing it with an increasing vector (array) size for a different number of swich-on threads, from 1 to 21. This operation was done using the ```OMP_NUM_THREADS``` environment variable. 
 For each series (representad by different colors) we can see that when the size of the vector exceeds the L3 cache capability, then it begins to be stored in the RAM memory. Indeed, the triad (MB/s) considerably drops. The L3 cache capability is around `30MB`. This could be reached considering a vector of double with size `2*10^6`. In the stream code, we have three vectors
 
 
 When we have a lots of threads available, the bandwidth is high and decreases if we decrease the number of threads.
 
-![Figure_1](fixthr.jpg)
+![Figure_2](fixthr.jpg)
 
 
 In the second figure, the vector (array) size is kept fixed and we tested the bandwithd against the number of threads. The general behaviour is that, for each fixed vector size, the bandwidth increases as the number of threads increases. The best vector size seems to be 10^6 (green dots). The blue dots, which corresponds to a smaller vector size (10^5), have a worse bandwith. This could be related to the fact the the vector is too small in size and an increase of threads could only mess up the process, in particular the parallelization overhead is relatively heavy. If now we take the red dots we can observe that, since the size of our vector is huge (beyond the L3 cache capability), the increasing of the threads do not visibly benefits the bandwitdh.
 
-![Figure_2](fixvsize.jpg)
+![Figure_3](fixvsize.jpg)
 
 We can also improve our analysis using the command `numactl` and exploiting the topology of the hardware. Using `numactl --hardware`, we can find:
 
