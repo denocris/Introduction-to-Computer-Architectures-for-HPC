@@ -67,7 +67,7 @@ float * c, int dim)
 ```
 We compiled the code containing both the versions of the vector addiction. In particular we also tried to compile the code with -O0, -O1 and -O2 optimization flags. For each case we compute the run time and plot it in the following figure.
 
-![Figure 2](loop_unrolling.jpg)
+![Figure 2](loop_unrolling.png)
 
 We can apreciate that the slowest case is the one with no loop unrolling and non-optimized -O0 flag, as expected. 
 The version with the same -O0 flag optimization but with loop unrolling algorithm gives a speedup of 1.5-2.
