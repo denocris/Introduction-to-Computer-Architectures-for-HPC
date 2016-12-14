@@ -8,6 +8,8 @@ First of all we estimate the overall bandwidth of just one core in a node. To do
 
 ![Figure_1](onethr.png)
 
+In this case, the bandwidths start at higher values of around 22 GB/s for lower array sizes that still fit in the L3 cache. The bandwidths then decrease to settle at 12 GB/s when the array size exceeds the cache so that the RAM is now being used. 
+
 In the following plot we estimate the overall bandwidth of a node, testing it with an increasing vector (array) size for a different number of swich-on threads, from 1 to 21. This operation was done using the ```OMP_NUM_THREADS``` environment variable. 
 For each series (representad by different colors) we can see that when the size of the vector exceeds the L3 cache capability, then it begins to be stored in the RAM memory. Indeed, the triad (MB/s) considerably drops. The L3 cache capability is around `30MB`. This could be reached considering a vector of double with size `2*10^6`. In the stream code, we have three vectors
 
