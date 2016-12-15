@@ -18,9 +18,9 @@ for( count = 0; count < LOOP_SIZE; count++ ){
 
 where the offset can be `+1`, `0`, `-1`. The idea is to compute the number of operations per second that the processor is able to perform in each of the three cases. Instruction pipelining is a technique that implements a form of parallelism called instruction-level parallelism within a single processor. Pipelining increases instruction throughput by performing multiple operations at the same time.
 
-In the first two cases, when the `offset = +1, 0`, the pipeline is working well. The reading of the array is from left to right, so in this case the operation on the current element `A[n]` does not need to wait for the operation on itself or the next element `A[n+1]` to finish. Instead, when the offset is `−1` the pipeline is not anymore performed since the operation on `A[n]` needs to wait for the operation on `A[n-1]` to finish before it can read the value. In this last case the number of operations per second drop about 20%. This can be clearly seen in the following figure.
+In the first two cases, when the `offset = +1, 0`, the pipeline is working well. The reading of the array is from left to right, so in this case the operation on the current element `A[n]` does not need to wait for the operation on itself or the next element `A[n+1]` to finish. Instead, when the offset is `−1` the pipeline is not anymore performed since the operation on `A[n]` needs to wait for the operation on `A[n-1]` to finish before it can read the value. In this last case the number of operations per second drop about 20%. This can be clearly seen in the following figures.
 
-In the following figure we kept the loop-size fixed and vary the size of our vectors.
+In the first figure below we kept the loop-size fixed and vary the size of our vectors.
 
 ![Figure 1](gflops.jpg)
 
