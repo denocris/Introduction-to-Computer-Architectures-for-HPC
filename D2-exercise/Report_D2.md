@@ -41,7 +41,7 @@ The idea is to develop a program that performs vector addition, unrolling eight 
 If we want ot naively (not unrolled) implement vector addiction we can use the following code
 
 ```c
-void vector_add(float *a, float *b, float *c, int dim)
+void vector_add_naive(float *a, float *b, float *c, int dim)
     {
         int i;
 
@@ -54,7 +54,7 @@ void vector_add(float *a, float *b, float *c, int dim)
 While if we implement unrolled loops (with eight entries) the addiction is given by
 
 ```c
-void vector_add_unroll8(const float * a, const float *  b,
+void vector_add_unrolling(const float * a, const float *  b,
 float * c, int dim)
     {
         int i,rest;
